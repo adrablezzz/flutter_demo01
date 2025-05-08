@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../router/index.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 // 封装的页面跳转方法
 // 从右侧进入，透明度过渡
@@ -53,5 +54,17 @@ Route createFadeRoute(String routePath) {
         child: child,
       );
     },
+  );
+}
+
+
+// 中间弹框
+void showToast(msg) {
+  Fluttertoast.showToast(
+    msg: msg,
+    toastLength: Toast.LENGTH_SHORT,
+    gravity: ToastGravity.CENTER,
+    backgroundColor: Colors.black54,
+    textColor: Colors.white,
   );
 }

@@ -43,3 +43,25 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+
+# 忽略代码外的其它文件
+/.dart_tool
+/.idea
+/.vscode
+/android
+/build
+/ios
+/linux
+/macos
+/test
+/web
+/windows
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
+analysis_options.yaml
+devtools_options.yaml
+flutter_demo01.iml
+pubspec.lock
+

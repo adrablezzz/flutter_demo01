@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'router/index.dart';
+import 'package:provider/provider.dart';
+import 'store/global_state.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => GlobalState()..loadState(),
+      child: MyApp(),
+    ),
+  );
 }
 
  
