@@ -1,8 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_demo01/utils/utils.dart';
 import 'package:flutter_demo01/model/api_result.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import './url.dart';
+import '../utils/app_navigator.dart';
 
 typedef FromJson<T> = T Function(Map<String, dynamic> json);
 
@@ -63,17 +65,16 @@ class DioClient {
       print('Error type: ${error.type}');
       if (error.response != null) {
         var statusCode = error.response?.statusCode;
-        var msg = error.response?.data['msg'];
-
-        print('Response status code: ${statusCode}');
-        print('Response data: ${error.response?.data}');
-        print('消息: ${msg}');
 
         if(statusCode == 401) {
-          showToast('未认证的请求');
+          showToast('登录失效，请重新登录');
           // token 过期或无效，跳转到登录页面
-          // Navigator.pushReplacementNamed(context, '/login');
+          AppNavigator.pushReplacementNamed('/login');
         } else {
+          var msg = error.response?.data['msg'];
+          print('Response status code: ${statusCode}');
+          print('Response data: ${error.response?.data}');
+          print('消息: ${msg}');
           showToast(msg ?? '网络异常');
         }
       }

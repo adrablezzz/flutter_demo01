@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'router/index.dart';
 import 'package:provider/provider.dart';
 import 'store/global_state.dart';
+import './utils/app_navigator.dart';
 
 void main() {
   runApp(
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: AppNavigator.navigatorKey,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
